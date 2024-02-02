@@ -1231,7 +1231,7 @@ class Window(BaseWindow):
         ),
         klass="Series/DataFrame",
         axis="",
-    )
+    ) # type: ignore
     def aggregate(self, func, *args, **kwargs):
         result = ResamplerWindowApply(self, func, args=args, kwargs=kwargs).agg()
         if result is None:
@@ -1279,7 +1279,7 @@ class Window(BaseWindow):
         window_method="rolling",
         aggregation_description="weighted window sum",
         agg_method="sum",
-    )
+    ) # type: ignore
     def sum(self, numeric_only: bool = False, **kwargs):
         window_func = window_aggregations.roll_weighted_sum
         # error: Argument 1 to "_apply" of "Window" has incompatible type
@@ -1328,7 +1328,7 @@ class Window(BaseWindow):
         window_method="rolling",
         aggregation_description="weighted window mean",
         agg_method="mean",
-    )
+    ) # type: ignore
     def mean(self, numeric_only: bool = False, **kwargs):
         window_func = window_aggregations.roll_weighted_mean
         # error: Argument 1 to "_apply" of "Window" has incompatible type
@@ -1377,7 +1377,7 @@ class Window(BaseWindow):
         window_method="rolling",
         aggregation_description="weighted window variance",
         agg_method="var",
-    )
+    ) # type: ignore
     def var(self, ddof: int = 1, numeric_only: bool = False, **kwargs):
         window_func = partial(window_aggregations.roll_weighted_var, ddof=ddof)
         kwargs.pop("name", None)
@@ -1419,7 +1419,7 @@ class Window(BaseWindow):
         window_method="rolling",
         aggregation_description="weighted window standard deviation",
         agg_method="std",
-    )
+    ) # type: ignore
     def std(self, ddof: int = 1, numeric_only: bool = False, **kwargs):
         return zsqrt(
             self.var(ddof=ddof, name="std", numeric_only=numeric_only, **kwargs)
@@ -1927,7 +1927,7 @@ class Rolling(RollingAndExpandingMixin):
         ),
         klass="Series/Dataframe",
         axis="",
-    )
+    ) # type: ignore
     def aggregate(self, func, *args, **kwargs):
         return super().aggregate(func, *args, **kwargs)
 
@@ -1968,7 +1968,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="count of non NaN observations",
         agg_method="count",
-    )
+    ) # type: ignore
     def count(self, numeric_only: bool = False):
         return super().count(numeric_only)
 
@@ -1995,7 +1995,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="custom aggregation function",
         agg_method="apply",
-    )
+    ) # type: ignore
     def apply(
         self,
         func: Callable[..., Any],
@@ -2076,7 +2076,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="sum",
         agg_method="sum",
-    )
+    ) # type: ignore
     def sum(
         self,
         numeric_only: bool = False,
@@ -2115,7 +2115,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="maximum",
         agg_method="max",
-    )
+    ) # type: ignore
     def max(
         self,
         numeric_only: bool = False,
@@ -2159,7 +2159,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="minimum",
         agg_method="min",
-    )
+    ) # type: ignore
     def min(
         self,
         numeric_only: bool = False,
@@ -2208,7 +2208,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="mean",
         agg_method="mean",
-    )
+    ) # type: ignore
     def mean(
         self,
         numeric_only: bool = False,
@@ -2250,7 +2250,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="median",
         agg_method="median",
-    )
+    ) # type: ignore
     def median(
         self,
         numeric_only: bool = False,
@@ -2307,7 +2307,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="standard deviation",
         agg_method="std",
-    )
+    ) # type: ignore
     def std(
         self,
         ddof: int = 1,
@@ -2366,7 +2366,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="variance",
         agg_method="var",
-    )
+    ) # type: ignore
     def var(
         self,
         ddof: int = 1,
@@ -2413,7 +2413,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="unbiased skewness",
         agg_method="skew",
-    )
+    ) # type: ignore
     def skew(self, numeric_only: bool = False):
         return super().skew(numeric_only=numeric_only)
 
@@ -2449,7 +2449,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="standard error of mean",
         agg_method="sem",
-    )
+    ) # type: ignore
     def sem(self, ddof: int = 1, numeric_only: bool = False):
         # Raise here so error message says sem instead of std
         self._validate_numeric_only("sem", numeric_only)
@@ -2493,7 +2493,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="Fisher's definition of kurtosis without bias",
         agg_method="kurt",
-    )
+    ) # type: ignore
     def kurt(self, numeric_only: bool = False):
         return super().kurt(numeric_only=numeric_only)
 
@@ -2546,7 +2546,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="quantile",
         agg_method="quantile",
-    )
+    ) # type: ignore
     @deprecate_kwarg(old_arg_name="quantile", new_arg_name="q")
     def quantile(
         self,
@@ -2620,7 +2620,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="rank",
         agg_method="rank",
-    )
+    ) # type: ignore
     def rank(
         self,
         method: WindowingRankType = "average",
@@ -2676,7 +2676,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="sample covariance",
         agg_method="cov",
-    )
+    ) # type: ignore
     def cov(
         self,
         other: DataFrame | Series | None = None,
@@ -2809,7 +2809,7 @@ class Rolling(RollingAndExpandingMixin):
         window_method="rolling",
         aggregation_description="correlation",
         agg_method="corr",
-    )
+    ) # type: ignore
     def corr(
         self,
         other: DataFrame | Series | None = None,
