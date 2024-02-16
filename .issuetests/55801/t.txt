@@ -1,0 +1,34 @@
+c:\Users\niter\Documents\pandas-jrmylow\t.py:5: UserWarning: test1
+  warnings.warn('test1')
+registry on exiting fun1: 
+    {'version': 0, ('test1', <class 'UserWarning'>, 5): True}
+registry on exiting fun1: 
+    {'version': 0, ('test1', <class 'UserWarning'>, 5): True}
+registry on entering fun2: 
+    {'version': 0, ('test1', <class 'UserWarning'>, 5): True}
+c:\Users\niter\Documents\pandas-jrmylow\t.py:10: UserWarning: test2
+  warnings.warn('test2')
+registry on exiting fun2: 
+    {'version': 0, ('test1', <class 'UserWarning'>, 5): True, ('test2', <class 'UserWarning'>, 10): True}
+registry on entering fun2: 
+    {'version': 0, ('test1', <class 'UserWarning'>, 5): True, ('test2', <class 'UserWarning'>, 10): True}
+registry on exiting fun2: 
+    {'version': 0, ('test1', <class 'UserWarning'>, 5): True, ('test2', <class 'UserWarning'>, 10): True}
+registry before entering fun3: 
+    {'version': 0, ('test1', <class 'UserWarning'>, 5): True, ('test2', <class 'UserWarning'>, 10): True}
+registry in catch_warnings(): 
+    {'version': 0, ('test1', <class 'UserWarning'>, 5): True, ('test2', <class 'UserWarning'>, 10): True}
+c:\Users\niter\Documents\pandas-jrmylow\t.py:17: UserWarning: test3
+  warnings.warn('test3')
+registry after exiting fun3: 
+    {'version': 1, ('test3', <class 'UserWarning'>, 17): True}
+c:\Users\niter\Documents\pandas-jrmylow\t.py:5: UserWarning: test1
+  warnings.warn('test1')
+registry on exiting fun1: 
+    {'version': 2, ('test1', <class 'UserWarning'>, 5): True}
+registry on entering fun2: 
+    {'version': 2, ('test1', <class 'UserWarning'>, 5): True}
+c:\Users\niter\Documents\pandas-jrmylow\t.py:10: UserWarning: test2
+  warnings.warn('test2')
+registry on exiting fun2: 
+    {'version': 2, ('test1', <class 'UserWarning'>, 5): True, ('test2', <class 'UserWarning'>, 10): True}
